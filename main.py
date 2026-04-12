@@ -2,6 +2,8 @@ from environment import GridEnvironment
 from planner import PrioritizedPlanner
 from visualizer import Visualizer
 from IPython.display import display
+from planner import CBSPlanner
+
 
 if __name__ == "__main__":
     print("Generating 20x20 Warehouse Environment...")
@@ -22,7 +24,8 @@ if __name__ == "__main__":
     ]
     
     print("Initializing Decoupled Prioritized Planner...")
-    planner = PrioritizedPlanner(env, agents)
+    # planner = PrioritizedPlanner(env, agents)
+    planner = CBSPlanner(env, agents)
     optimal_paths = planner.solve()
     
     if optimal_paths:
